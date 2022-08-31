@@ -45,6 +45,7 @@ module.exports.updateFormation = async (req, res) => {
     NbreParticipants,
     Formateur,
     Done,
+    Eval,
   } = req.body;
   try {
     const formation = await models.Formations.update(
@@ -57,6 +58,7 @@ module.exports.updateFormation = async (req, res) => {
         NbreParticipants: NbreParticipants,
         Formateur: Formateur,
         Done: Done,
+        Eval: Eval,
       },
       { where: { idFormation: id } }
     ).then((result) => {
@@ -91,4 +93,46 @@ module.exports.deleteFormation = async (req, res) => {
     return "Erreur";
   }
   res.send(formations);
+};
+
+module.exports.searchById = async (req, res) => {
+  let f;
+  let O;
+  let { id } = req.params;
+  try {
+    await models.Formations.findAll({ where: { idFormation: id } }).then(
+      (result) => {
+        try {
+          f = result;
+        } catch (error) {
+          console.log("Erreur", error); // true
+        }
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return "Erreur";
+  }
+  res.send(f);
+};
+
+module.exports.searchByTitle = async (req, res) => {
+  let f;
+  let O;
+  let { title } = req.params;
+  try {
+    await models.Formations.findAll({ where: { Titre: title } }).then(
+      (result) => {
+        try {
+          f = result;
+        } catch (error) {
+          console.log("Erreur", error); // true
+        }
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return "Erreur";
+  }
+  res.send(f);
 };

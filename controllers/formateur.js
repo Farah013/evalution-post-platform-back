@@ -36,12 +36,12 @@ module.exports.createFormateur = async (req, res) => {
 module.exports.updateFormateur = async (req, res) => {
   let formateurs;
   let { id } = req.params;
-  let { FirstName, LastName, Email, Password } = req.body;
+  let { Name, Speciality, Email, Password } = req.body;
   try {
     const user = await models.Formateurs.update(
       {
-        FirstName: FirstName,
-        LastName: LastName,
+        Name: Name,
+        Speciality: Speciality,
         Email: Email,
         Password: Password,
       },

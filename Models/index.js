@@ -36,6 +36,10 @@ const modules = [
   //,require("nouveau model")
   require("./formations"),
   // Add other modules here ..
+  require("./objectifs"),
+  require("./participants"),
+  require("./evaluation"),
+  require("./users"),
 ];
 
 modules.forEach((mod) => {

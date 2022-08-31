@@ -4,24 +4,21 @@ const models = require("../Models/index");
 const { QueryTypes, sequelize } = require("sequelize");
 const { eventNames } = require("./api");
 const {
-  getFormation,
-  createFormation,
-  updateFormation,
-  deleteFormation,
+  getEvaluation,
+  createEvaluation,
+  updateEvaluation,
+  deleteEvaluation,
   searchById,
-  searchByTitle,
-} = require("../controllers/formation.js");
+} = require("../controllers/evaluation.js");
 //Getting all formations
-router.get("/", getFormation);
+router.get("/", getEvaluation);
 //INSERTING NEW formation
-router.post("/", createFormation);
+router.post("/", createEvaluation);
 //UPDATING A formation
-router.put("/:id", updateFormation);
+router.put("/:id", updateEvaluation);
 //DELETING A formation
-router.delete("/:id", deleteFormation);
+router.delete("/:id", deleteEvaluation);
 
-//Searching Formation by Title
-router.get("/title/:title", searchByTitle);
 //SEARCHING BY ID
 router.get("/:id", searchById);
 module.exports = router;

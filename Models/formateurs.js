@@ -9,10 +9,10 @@ module.exports = (sequelize, Sequelize) => {
         primaryKey: true,
         // autoIncrement: true,
       },
-      FirstName: {
+      Name: {
         type: Sequelize.STRING(50),
       },
-      LastName: {
+      Speciality: {
         type: Sequelize.STRING(50),
       },
       Email: {

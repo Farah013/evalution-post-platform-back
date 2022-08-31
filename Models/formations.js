@@ -33,6 +33,12 @@ module.exports = (sequelize, Sequelize) => {
       NbreParticipants: {
         type: DataTypes.BOOLEAN,
       },
+      Done: {
+        type: DataTypes.INTEGER,
+      },
+      Eval: {
+        type: DataTypes.INTEGER,
+      },
     },
     {
       // This needs to be false to deactivate createdAt and updatedAt when sending the query
